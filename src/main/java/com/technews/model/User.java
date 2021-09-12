@@ -1,6 +1,7 @@
 package com.technews.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name= "user")
+@Table(name = "user")
+public class User implements Serializable {
 
-public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -42,6 +43,8 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+
     public Integer getId() {
         return id;
     }
@@ -139,7 +142,4 @@ public class User {
                 ", comments=" + comments +
                 '}';
     }
-
-
-
-}//end class
+}
